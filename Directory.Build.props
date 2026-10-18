@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
+    <LangVersion>14.0</LangVersion>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <Import Project="$(RepoRoot)BuildPaths.local.props" Condition="Exists('$(RepoRoot)BuildPaths.local.props')" />
+</Project>

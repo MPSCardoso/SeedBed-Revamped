@@ -1,0 +1,6 @@
+<Project>
+  <Target Name="ValidateGamePaths" BeforeTargets="ResolveAssemblyReferences">
+    <Error Condition="!Exists('$(ValheimPath)\assembly_valheim.dll')" Text="Set ValheimPath in BuildPaths.local.props or pass -p:ValheimPath=... (the game's Managed directory)." />
+    <Error Condition="!Exists('$(BepInExCore)\BepInEx.dll')" Text="Set BepInExCore in BuildPaths.local.props or pass -p:BepInExCore=... (the profile's BepInEx/core directory)." />
+  </Target>
+</Project>

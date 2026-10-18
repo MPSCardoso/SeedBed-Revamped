@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>PieceManager</AssemblyName>
+    <DependencyRevision>c3f70ff2c4d24457d12903e14a6e13384657fba3</DependencyRevision>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <Import Project="$(RepoRoot)build/GameReferences.props" />
+  <Import Project="$(RepoRoot)build/Dependency.targets" />
+</Project>

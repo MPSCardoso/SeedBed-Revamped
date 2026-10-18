@@ -1,0 +1,18 @@
+<Project>
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" PrivateAssets="all" />
+    <Reference Include="BepInEx" HintPath="$(BepInExCore)\BepInEx.dll" Private="false" />
+    <Reference Include="0Harmony" HintPath="$(BepInExCore)\0Harmony.dll" Private="false" />
+    <Reference Include="assembly_valheim" HintPath="$(ValheimPath)\assembly_valheim.dll" Private="false" Publicize="true" />
+    <Reference Include="assembly_guiutils" HintPath="$(ValheimPath)\assembly_guiutils.dll" Private="false" Publicize="true" />
+    <Reference Include="assembly_utils" HintPath="$(ValheimPath)\assembly_utils.dll" Private="false" />
+    <!-- Match the BCL assemblies used by the target Unity/Mono runtime. -->
+    <Reference Include="System.Net.Http" HintPath="$(ValheimPath)\System.Net.Http.dll" Private="false" />
+    <Reference Include="System.IO.Compression" HintPath="$(ValheimPath)\System.IO.Compression.dll" Private="false" />
+    <Reference Include="$(ValheimPath)\UnityEngine*.dll" Private="false" />
+    <Reference Include="Unity.TextMeshPro" HintPath="$(ValheimPath)\Unity.TextMeshPro.dll" Private="false" />
+  </ItemGroup>
+</Project>

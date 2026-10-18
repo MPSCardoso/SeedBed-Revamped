@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+.cache/
+artifacts/
+BuildPaths.local.props
+build_*.log
+tests/regression.log
+tests/.tmp/
+scratch/

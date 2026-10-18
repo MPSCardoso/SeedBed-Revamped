@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <!-- Copy to BuildPaths.local.props; command-line -p: properties take precedence. -->
+    <ValheimPath Condition="'$(ValheimPath)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Valheim\valheim_Data\Managed</ValheimPath>
+    <BepInExCore Condition="'$(BepInExCore)' == ''">C:\path\to\your\profile\BepInEx\core</BepInExCore>
+  </PropertyGroup>
+</Project>

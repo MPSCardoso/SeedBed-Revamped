@@ -1,0 +1,11 @@
+<Project>
+  <Target Name="PackageSeedBed" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+    <MakeDir Directories="$(TargetDir)package" />
+    <ItemGroup>
+      <MergeAssemblies Include="$(TargetPath)" />
+      <MergeAssemblies Include="$(TargetDir)PieceManager.dll;$(TargetDir)ServerSync.dll;$(TargetDir)LocalizationManager.dll;$(TargetDir)YamlDotNet.dll" />
+      <MergeSearchPaths Include="$(TargetDir);$(ValheimPath);$(BepInExCore)" />
+    </ItemGroup>
+    <ILRepack InputAssemblies="@(MergeAssemblies)" OutputFile="$(TargetDir)package/SeedBed.dll" TargetKind="SameAsPrimaryAssembly" Internalize="true" DebugInfo="true" LibraryPath="@(MergeSearchPaths)" />
+  </Target>
+</Project>

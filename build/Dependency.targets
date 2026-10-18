@@ -1,0 +1,9 @@
+<Project>
+  <Import Project="$(RepoRoot)build/ValidatePaths.targets" />
+  <Target Name="PrepareDependencySources" BeforeTargets="CoreCompile">
+    <Exec Command="pwsh -NoProfile -File &quot;$(RepoRoot)build/Restore-Dependencies.ps1&quot; -Name &quot;$(AssemblyName)&quot;" />
+    <ItemGroup>
+      <Compile Include="$(RepoRoot).cache/dependencies/$(AssemblyName)/$(DependencyRevision)/*.cs" />
+    </ItemGroup>
+  </Target>
+</Project>

@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>ServerSync</AssemblyName>
+    <DependencyRevision>c57c2aa54e07cdcc7630d6068699ea781622323e</DependencyRevision>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <Import Project="$(RepoRoot)build/GameReferences.props" />
+  <Import Project="$(RepoRoot)build/Dependency.targets" />
+</Project>

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "packages": {
+    "YamlDotNet": "16.0.0",
+    "ILRepack.Lib.MSBuild.Task": "2.0.46",
+    "BepInEx.AssemblyPublicizer.MSBuild": "0.4.3"
+  },
+  "dependencies": [
+    {
+      "name": "PieceManager",
+      "repository": "https://github.com/AzumattDev/PieceManager",
+      "revision": "c3f70ff2c4d24457d12903e14a6e13384657fba3",
+      "version": "1.4.0",
+      "files": [
+        {
+          "name": "PieceManager.cs",
+          "url": "https://raw.githubusercontent.com/AzumattDev/PieceManager/c3f70ff2c4d24457d12903e14a6e13384657fba3/PieceManager.cs",
+          "sha256": "2cc516565cae973efe9639ed64687515e112b3bb427370d07688d51483866d0b"
+        },
+        {
+          "name": "MaterialReplacer.cs",
+          "url": "https://raw.githubusercontent.com/AzumattDev/PieceManager/c3f70ff2c4d24457d12903e14a6e13384657fba3/MaterialReplacer.cs",
+          "sha256": "7b5dd3243dcb6f708b2d7b0bab3a31c325cacadedb7e017e02c35a4d06238a68"
+        },
+        {
+          "name": "SnapPointMaker.cs",
+          "url": "https://raw.githubusercontent.com/AzumattDev/PieceManager/c3f70ff2c4d24457d12903e14a6e13384657fba3/SnapPointMaker.cs",
+          "sha256": "d1e9ddf17ac1cb182b92d4678e8789d20ab1dedff1793b7fa1da742c59c34bed"
+        },
+        {
+          "name": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/AzumattDev/PieceManager/c3f70ff2c4d24457d12903e14a6e13384657fba3/LICENSE.txt",
+          "sha256": "8501a98c68c3619a7509aa96fce032f905499d55aab99d875bb6b6d3b751b3b8"
+        }
+      ]
+    },
+    {
+      "name": "ServerSync",
+      "repository": "https://github.com/blaxxun-boop/ServerSync",
+      "revision": "c57c2aa54e07cdcc7630d6068699ea781622323e",
+      "version": "source-v1.20",
+      "files": [
+        {
+          "name": "ConfigSync.cs",
+          "url": "https://raw.githubusercontent.com/blaxxun-boop/ServerSync/c57c2aa54e07cdcc7630d6068699ea781622323e/ConfigSync.cs",
+          "sha256": "0c6623ef756c1bf4b762d91bb42979bc6a7f123efd313ee516b0f85caeb4c445"
+        },
+        {
+          "name": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/blaxxun-boop/ServerSync/c57c2aa54e07cdcc7630d6068699ea781622323e/LICENSE.txt",
+          "sha256": "81d67aea6f0731054b1a121f36e6d337b4dd445646201077add32a93d41b0034"
+        }
+      ]
+    },
+    {
+      "name": "LocalizationManager",
+      "repository": "https://github.com/blaxxun-boop/LocalizationManager",
+      "revision": "1bf7659b84dc9336572ff3300b61780893de78de",
+      "version": "1.3",
+      "files": [
+        {
+          "name": "LocalizationManager.cs",
+          "url": "https://raw.githubusercontent.com/blaxxun-boop/LocalizationManager/1bf7659b84dc9336572ff3300b61780893de78de/LocalizationManager/LocalizationManager.cs",
+          "sha256": "a727bb9966916479b16ce7f0ecfc58860f734068c54fe98982dd46364d11a833"
+        },
+        {
+          "name": "LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/blaxxun-boop/LocalizationManager/1bf7659b84dc9336572ff3300b61780893de78de/LICENSE.txt",
+          "sha256": "6a5bf8b05c5021f8a544a5f4ff4c3d4f7b56c66db8fb7e36e96c38d27ed03567"
+        }
+      ]
+    }
+  ]
+}

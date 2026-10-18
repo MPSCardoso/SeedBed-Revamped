@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SeedBed" HintPath="../src/bin/Release/netstandard2.1/package/SeedBed.dll" />
+    <Reference Include="BepInEx" HintPath="$(BepInExCore)/BepInEx.dll" />
+    <Reference Include="UnityEngine" HintPath="$(ValheimPath)/UnityEngine.dll" />
+    <Reference Include="UnityEngine.CoreModule" HintPath="$(ValheimPath)/UnityEngine.CoreModule.dll" />
+  </ItemGroup>
+  <Import Project="$(RepoRoot)build/ValidatePaths.targets" />
+</Project>
