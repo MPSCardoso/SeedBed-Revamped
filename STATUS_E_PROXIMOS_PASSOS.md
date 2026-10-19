@@ -5,14 +5,14 @@
 - Adicionado o ciclo PoteitrSeeds → Poteitr e Poteitr → PoteitrSeeds, com consumo 5 e produção 15; total de 27 padrões. Resolução por prefab com fallback para $item_poteitr/$item_poteitrseeds, mapeamento e visuais genéricos existentes e logs Resource de Poteitr.
 - Defaults Version = 2, local: versão 0 recebe os padrões do Deep North e Poteitr; versão 1 recebe somente Poteitr. Apenas From ausentes são acrescentados; destinos/quantidades personalizados e remoções anteriores de outras culturas são preservados.
 - Backup .pre-poteitr.bak antes da escrita atômica, sem sobrescrever backups existentes nem .pre-valheim1.bak. YAML inválido permanece intacto; falhas permitem nova tentativa. A versão avança após sucesso, respeitando remoções posteriores.
-- Versão 1.3.1 no plugin, assembly e manifest. Entrega local: SeedBed.dll e artifacts/releases/SeedBed_Revamped-1.3.1.zip. Publicação e instalação não fazem parte deste ajuste.
+- Versão 1.3.1 no plugin, assembly e manifest. Entrega: SeedBed.dll e artifacts/releases/SeedBed_Revamped-1.3.1.zip. Instalação de teste e publicação registradas abaixo.
 - Pipeline completo aprovado: build Release sem erros, com os 8 avisos MSB3277 já documentados; **56 verificações de regressão aprovadas** contra a DLL mesclada; cache válido aceito e cache adulterado rejeitado; ZIP validado por lista de arquivos e SHA-256. A DLL da raiz foi atualizada após todas as verificações, com backup da distribuição anterior.
-- SHA-256 da DLL: **f9ddd661d77a165c47aa98dbe3b6afed835318085874b27191920c477073fb82**. SHA-256 do ZIP: **4b1d05a67e6ae4370e5b0b86b5b8f8061d43b191bffdf4fb81d44a2b11e33258**. Log local: build_poteitr.log.
-- **Validação de Poteitr no jogo pendente**, separada da confirmação histórica da 1.3.0. Não houve instalação nem publicação da 1.3.1 nesta tarefa.
+- SHA-256 da DLL: **f9ddd661d77a165c47aa98dbe3b6afed835318085874b27191920c477073fb82**. SHA-256 do ZIP publicado, reempacotado após registrar a validação: **3919306033a9abc26c1ea56f3484364d0fedf2ae659a32abf40be43d57c993d3**. Log do pipeline original: build_poteitr.log.
+- **Validação funcional de Poteitr confirmada pelo mantenedor** no mundo de testes; versão 1.3.1 publicada no Hexium em 19/10/2026. A confirmação histórica de multiplayer da 1.3.0 continua separada deste relato.
 
 ### Instalação para teste no Gale — 19/10/2026
 
-A pedido do usuário, a DLL 1.3.1 foi posteriormente instalada no perfil ValheimNerdola, em BepInEx/plugins/Tetus-SeedBed_Revamped/SeedBedRevamped/SeedBed.dll. Versão e SHA-256 conferidos contra a distribuição validada. DLL anterior preservada em artifacts/backups/Gale-ValheimNerdola-SeedBed-before-1.3.1-20261019-133042-065.dll. O jogo estava fechado; nenhuma configuração foi alterada. O perfil já usa Germination Duration = 60 e Defaults Version = 1, permitindo verificar a migração automática para 2 na próxima inicialização. Publicação e validação em jogo continuam pendentes.
+A pedido do usuário, a DLL 1.3.1 foi posteriormente instalada no perfil ValheimNerdola, em BepInEx/plugins/Tetus-SeedBed_Revamped/SeedBedRevamped/SeedBed.dll. Versão e SHA-256 conferidos contra a distribuição validada. DLL anterior preservada em artifacts/backups/Gale-ValheimNerdola-SeedBed-before-1.3.1-20261019-133042-065.dll. O jogo estava fechado; nenhuma configuração foi alterada. O perfil já usa Germination Duration = 60 e Defaults Version = 1, permitindo verificar a migração automática para 2 na próxima inicialização. Naquele momento, publicação e validação em jogo ainda estavam pendentes; ambas foram concluídas posteriormente, conforme os registros abaixo.
 
 Teste rápido: iniciar o mundo de testes pelo perfil ValheimNerdola; no console F5, ativar devcommands e executar spawn PoteitrSeeds 10 e spawn Poteitr 10. Usar o item desejado pela barra rápida no canteiro vazio para escolher explicitamente o sentido da conversão. Cada lote deve consumir 5 itens e, após pouco mais de 60 segundos, produzir 15 do outro item; conferir visuais e Farming. Sair e reentrar para verificar persistência dos canteiros e ausência de duplicatas no YAML. Conferir também uma cultura anterior, como cenoura. Este roteiro não registra aprovação de conquistas com devcommands.
 
@@ -20,6 +20,12 @@ Teste rápido: iniciar o mundo de testes pelo perfil ValheimNerdola; no console 
 
 Após instalar a 1.3.1 no perfil ValheimNerdola e receber o roteiro rápido, o mantenedor confirmou: "Perfeito, validado". Validação funcional de Poteitr no mundo de testes concluída por relato do usuário, autorizando a publicação. Não foram fornecidos novos logs, medições individuais nem confirmação separada de multiplayer ou conquistas nesta rodada. Os registros anteriores de pendência descrevem o estado antes dessa confirmação.
 
+### Publicação 1.3.1 concluída — 19/10/2026
+
+- GitHub: correção, DLL, metadados e documentação publicados em main no commit 93bb6f34abf0489ef0e52156cb7b1a329856b03a. Remoto origin atualizado sem divergência.
+- Hexium: https://valheim.hexium.gg/mods/Tetus/SeedBed_Revamped — versão 1.3.1 pública e definida como latest, instalação Client & Server, README/descrição/changelog atualizados e download disponível. A página exibiu Scan successful.
+- Bug report de TheXutz respondido em inglês, agradecendo o aviso e indicando a correção e a atualização para 1.3.1: https://valheim.hexium.gg/mods/Tetus/SeedBed_Revamped/threads/376#post-1057. Status confirmado como Done.
+- Capturas locais: artifacts/publication/hexium-release-1.3.1.jpg e artifacts/publication/hexium-poteitr-report-done-1.3.1.jpg.
 ### Roteiro específico de Poteitr — referência para regressões
 
 1. Com servidor e clientes na 1.3.1, iniciar usando a configuração 1.3.0. Conferir as entradas ausentes de Poteitr, o backup e Defaults Version = 2; reiniciar e verificar ausência de duplicatas. Repetir com overrides e culturas antigas removidas.

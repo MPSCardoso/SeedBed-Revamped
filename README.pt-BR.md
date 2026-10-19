@@ -22,7 +22,7 @@ Backups ficam em artifacts/backups, fora da pasta de plugins. A build não insta
 
 ## Pacote para publicação
 
-O build.ps1 gera artifacts/releases/SeedBed_Revamped-1.3.1.zip após os checks. Inclui manifest, ícone 256×256, [README de publicação](docs/README_THUNDERSTORE.md), changelog, créditos/licenças e uma única DLL em BepInEx/plugins/SeedBedRevamped. O pacote 1.3.1 é preparado localmente; a publicação é uma etapa separada. O pacote 1.3.0 publicado mantém website_url vazio. A página do mod está no [Hexium](https://valheim.hexium.gg/mods/Tetus/SeedBed_Revamped) e o código no [GitHub](https://github.com/MPSCardoso/SeedBed-Revamped); a autoria da versão é Tetus.
+O build.ps1 gera artifacts/releases/SeedBed_Revamped-1.3.1.zip após os checks. Inclui manifest, ícone 256×256, [README de publicação](docs/README_THUNDERSTORE.md), changelog, créditos/licenças e uma única DLL em BepInEx/plugins/SeedBedRevamped. A versão 1.3.1 foi publicada em 19/10/2026. O pacote mantém website_url vazio. A página do mod está no [Hexium](https://valheim.hexium.gg/mods/Tetus/SeedBed_Revamped) e o código no [GitHub](https://github.com/MPSCardoso/SeedBed-Revamped); a autoria da versão é Tetus.
 
 O empacotamento também pode ser repetido sobre a DLL já validada:
 
