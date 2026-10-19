@@ -1,72 +1,78 @@
 # SeedBed Revamped
 
-Versão Revamped mantida por **Tetus**, baseada no [SeedBed original de blacks7ar](https://thunderstore.io/c/valheim/p/blacks7ar/SeedBed/). O código base, o canteiro, os assets e a ideia original são de blacks7ar. Permite cultivar sementes, vegetais, frutas e cogumelos em uma SeedBed, sem cultivar grandes áreas de terreno.
+**English** · [Português (Brasil)](README.pt-BR.md)
 
-A versão **1.3.0** inclui suporte aos vegetais do Deep North (couve/aveia e suas sementes), arando, XP de Farming nativa ao plantar e colher e registro da colheita nas estatísticas nativas. As conversões padrão consomem 5 itens e produzem 15. O YAML continua personalizável e recebe os novos defaults uma única vez, preservando overrides e criando backup.
+Maintained by **Tetus**, based on [the original SeedBed by blacks7ar](https://thunderstore.io/c/valheim/p/blacks7ar/SeedBed/). Full credit to blacks7ar for the original code, seed bed, assets and concept. Grow seeds, vegetables, berries and mushrooms in a compact seed bed without cultivating a large field.
 
-## Conquistas
+Version **1.3.0** adds Deep North crops (kale and oats, including their seeds), lingonberries, native Farming XP when planting and harvesting, and native harvest statistics. Default conversions consume 5 items and produce 15. Custom YAML conversions remain configurable; new defaults are added once while preserving overrides and creating a backup.
 
-A SeedBed Revamped registra as colheitas pelas APIs nativas do Valheim e preserva as condições de elegibilidade do jogo. Ela não remove o bloqueio global de conquistas em partidas com mods. Para obter conquistas nesse cenário, é necessário habilitá-las com uma ferramenta como [Unshamed, de Azumatt](https://thunderstore.io/c/valheim/p/Azumatt/Unshamed/); o teste solo de Fazendeiro foi validado com Unshamed 1.0.8. Frutas e culturas agrícolas têm categorias de colheita distintas; o uso de sementes não é o critério. O crédito do lote usa SeedAmount plantas, não ProducedItems.
+[Download on Hexium](https://valheim.hexium.gg/mods/Tetus/SeedBed_Revamped) · [GitHub project](https://github.com/MPSCardoso/SeedBed-Revamped)
 
-## Instalação
+## Validation status
 
-Com o jogo fechado, desativar o pacote SeedBed original e instalar a **SeedBed.dll** da raiz em BepInEx/plugins/SeedBedRevamped. Manter apenas uma DLL ativa da família SeedBed; mover backups para fora de BepInEx/plugins. Servidor e clientes precisam da versão 1.3.0. Os managers e YamlDotNet estão incorporados; não devem ser instalados separadamente.
+SeedBed Revamped 1.3.0 has been tested on a multiplayer server, with all mod features validated by the maintainer. Planting, Farming XP and The Farmer achievement progress had also been validated in solo play with Unshamed enabled.
 
-O GUID interno blacks7ar.SeedBed, os nomes de configuração blacks7ar.SeedBed.cfg/.yml, o assembly SeedBed e o componente SeedBed.Functions.Germination são preservados para compatibilidade com instalações e canteiros existentes. Revamped substitui o original; não deve ser instalado junto dele.
+## Achievements
 
-Backups ficam em artifacts/backups, fora da pasta de plugins. A build não instala arquivos no Gale nem altera configurações do jogador.
+SeedBed Revamped records harvests through Valheim's native APIs and preserves the game's eligibility rules. It does not remove the global achievement restriction in modded sessions. To earn achievements with mods, use an achievement-enabling mod such as [Unshamed by Azumatt](https://thunderstore.io/c/valheim/p/Azumatt/Unshamed/). The solo Farmer validation used Unshamed 1.0.8.
 
-## Pacote para publicação
+Berries and agricultural crops use different harvest categories; using seeds is not the deciding factor. Batch harvest credit counts SeedAmount plants, not ProducedItems drops.
 
-O build.ps1 gera artifacts/releases/SeedBed_Revamped-1.3.0.zip após os checks. Inclui manifest, ícone 256×256, [README de publicação](docs/README_THUNDERSTORE.md), changelog, créditos/licenças e uma única DLL em BepInEx/plugins/SeedBedRevamped. O website_url permanece vazio até existir uma página própria; a autoria da versão é Tetus.
+## Installation
 
-O empacotamento também pode ser repetido sobre a DLL já validada:
+Close the game, disable the original SeedBed package and install **SeedBed.dll** from the repository root into BepInEx/plugins/SeedBedRevamped, or install the mod from Hexium using your mod manager. Keep only one active SeedBed DLL and store backups outside BepInEx/plugins. The server and every client need version **1.3.0**. Managers and YamlDotNet are embedded and do not need separate installation.
 
-```powershell
+The internal blacks7ar.SeedBed plugin ID, blacks7ar.SeedBed.cfg/.yml configuration names, SeedBed assembly and SeedBed.Functions.Germination component are preserved for compatibility with existing installations and placed beds. Revamped replaces the original; do not install both together.
+
+Backups are stored in artifacts/backups, outside the plugins folder. The build does not install files into Gale or change player settings.
+
+## Release package
+
+build.ps1 generates artifacts/releases/SeedBed_Revamped-1.3.0.zip after validation. It includes the manifest, a 256×256 icon, the [publication README](docs/README_THUNDERSTORE.md), changelog, credits/licenses and one DLL in BepInEx/plugins/SeedBedRevamped. The published 1.3.0 package has an empty website_url; the Hexium and GitHub pages are linked above.
+
+To package an already validated DLL again:
+
+~~~powershell
 pwsh -NoProfile -File build/Create-Package.ps1
-```
+~~~
 
-## Desenvolvimento
+## Development
 
-Requisitos: .NET 10 SDK, PowerShell 7, Valheim e BepInEx locais.
+Requirements: .NET 10 SDK, PowerShell 7, and local Valheim and BepInEx installations.
 
-1. Copiar BuildPaths.example.props para BuildPaths.local.props.
-2. Configurar ValheimPath para o diretório valheim_Data/Managed e BepInExCore para BepInEx/core do perfil.
-3. Executar:
+1. Copy BuildPaths.example.props to BuildPaths.local.props.
+2. Set ValheimPath to valheim_Data/Managed and BepInExCore to the profile's BepInEx/core directory.
+3. Run:
 
-```powershell
+~~~powershell
 pwsh -NoProfile -File ./build.ps1
-```
+~~~
 
-O script restaura versões travadas, compila Release, executa as regressões contra a DLL empacotada e só então atualiza a DLL da raiz e gera o ZIP. A versão anterior é preservada em backup. Caminhos podem ser substituídos com os parâmetros -ValheimPath e -BepInExCore; -NuGetSource aceita uma fonte NuGet local/offline.
+The script restores locked dependency versions, builds Release, runs regression checks against the packaged DLL, and only then updates the root DLL and creates the ZIP. It backs up the previous version. Override local paths with -ValheimPath and -BepInExCore; -NuGetSource accepts a local/offline NuGet source.
 
-Para apenas compilar, sem atualizar a distribuição:
+To compile without updating the distribution:
 
-```powershell
+~~~powershell
 dotnet build src/SeedBed.csproj -c Release
-```
+~~~
 
-O resultado para distribuição fica em src/bin/Release/netstandard2.1/package/SeedBed.dll. A DLL fora da pasta package é intermediária e requer as dependências separadas.
+The distributable DLL is src/bin/Release/netstandard2.1/package/SeedBed.dll. The DLL outside the package directory is an intermediate artifact that requires separate dependencies.
 
-## Organização
+## Repository layout
 
-- src/SeedBed: código próprio e metadados do mod; Functions contém a integração Unity/Valheim.
-- src/assets e src/translations: bundle e traduções originais, incorporados com os mesmos nomes lógicos.
-- build: projetos de dependências, hashes e scripts de preparação/empacotamento.
-- tests: regressões de conversões, migração, recursos, traduções e empacotamento.
-- .cache: fontes oficiais restauradas e pacotes locais, ignorados pelo Git.
-- artifacts/backups: snapshot anterior à limpeza e DLLs de backup, ignorados pelo Git.
+- src/SeedBed: mod code and metadata; Functions contains Unity/Valheim integration.
+- src/assets and src/translations: original bundle and translations, embedded under the same logical names.
+- build: dependency projects, hashes, preparation and packaging scripts.
+- tests: regression checks for conversions, migration, resources, translations and packaging.
+- .cache: restored official sources and local packages, ignored by Git.
+- artifacts/backups: pre-cleanup snapshot and DLL backups, ignored by Git.
 
-As referências publicizadas do jogo são geradas nos diretórios obj. Nenhuma DLL do jogo é versionada ou distribuída com o mod.
+Publicized game references are generated in obj directories. No game DLL is tracked or distributed with the mod.
 
-## Dependências
+## Dependencies
 
-YamlDotNet 16.0.0 vem do NuGet. PieceManager, ServerSync e LocalizationManager são compilados de fontes oficiais em revisões fixas, restauradas em cache e verificadas por SHA-256. O manifesto build/dependencies.lock.json registra origens e hashes; os arquivos packages.lock.json travam os pacotes NuGet. A build falha se uma fonte em cache divergir do hash esperado.
+YamlDotNet 16.0.0 comes from NuGet. PieceManager, ServerSync and LocalizationManager are built from official sources at pinned revisions, restored into a cache and checked with SHA-256. build/dependencies.lock.json records sources and hashes; packages.lock.json files lock NuGet packages. The build fails if a cached source does not match its expected hash.
 
-ILRepack.Lib.MSBuild.Task 2.0.46 incorpora as dependências em uma DLL; BepInEx.AssemblyPublicizer.MSBuild 0.4.3 prepara as referências locais. Não alterar fontes dentro do cache: mudanças deliberadas devem atualizar o manifesto e passar novamente pelas verificações.
+ILRepack.Lib.MSBuild.Task 2.0.46 embeds the dependencies in one DLL; BepInEx.AssemblyPublicizer.MSBuild 0.4.3 prepares local references. Do not edit cached sources: deliberate dependency changes must update the manifest and pass validation again.
 
-[Créditos e licenças](docs/THIRD_PARTY_NOTICES.md) · [APIs vanilla verificadas](docs/VALHEIM_API.md) · [Status e roteiro de teste no jogo](STATUS_E_PROXIMOS_PASSOS.md)
-
-A troca para o PieceManager oficial 1.4.0 ainda exige validação no jogo de construção, configurações, traduções, visuais e multiplayer. Os testes isolados não comprovam equivalência funcional em uma partida.
-
-[Demonstração do mod original](https://www.youtube.com/watch?v=g-Okgy7TPwo).
+[Credits and licenses](docs/THIRD_PARTY_NOTICES.md) · [Verified vanilla APIs (Portuguese)](docs/VALHEIM_API.md) · [Status and in-game test record (Portuguese)](STATUS_E_PROXIMOS_PASSOS.md) · [Original mod demonstration](https://www.youtube.com/watch?v=g-Okgy7TPwo)
