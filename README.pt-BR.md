@@ -4,7 +4,9 @@
 
 Versão Revamped mantida por **Tetus**, baseada no [SeedBed original de blacks7ar](https://thunderstore.io/c/valheim/p/blacks7ar/SeedBed/). O código base, o canteiro, os assets e a ideia original são de blacks7ar. Permite cultivar sementes, vegetais, frutas e cogumelos em uma SeedBed, sem cultivar grandes áreas de terreno.
 
-A versão **1.3.0** inclui suporte aos vegetais do Deep North (couve/aveia e suas sementes), arando, XP de Farming nativa ao plantar e colher e registro da colheita nas estatísticas nativas. As conversões padrão consomem 5 itens e produzem 15. O YAML continua personalizável e recebe os novos defaults uma única vez, preservando overrides e criando backup.
+A versão **1.3.1** adiciona o ciclo completo de Poteitr: PoteitrSeeds → Poteitr e Poteitr → PoteitrSeeds. Mantém couve/aveia e suas sementes, arando, XP de Farming nativa ao plantar e colher e registro da colheita nas estatísticas nativas. As 27 conversões padrão consomem 5 itens e produzem 15.
+
+O YAML continua personalizável. A atualização da 1.3.0 acrescenta somente os From ausentes de Poteitr, preservando destinos, quantidades e culturas antigas removidas pelo usuário. Instalações anteriores também recebem os padrões do Deep North. A migração cria .pre-poteitr.bak sem sobrescrever backups existentes; YAML inválido permanece intacto para nova tentativa na próxima inicialização. Defaults Version avança para 2 após sucesso, respeitando remoções posteriores.
 
 ## Conquistas
 
@@ -12,7 +14,7 @@ A SeedBed Revamped registra as colheitas pelas APIs nativas do Valheim e preserv
 
 ## Instalação
 
-Com o jogo fechado, desativar o pacote SeedBed original e instalar a **SeedBed.dll** da raiz em BepInEx/plugins/SeedBedRevamped. Manter apenas uma DLL ativa da família SeedBed; mover backups para fora de BepInEx/plugins. Servidor e clientes precisam da versão 1.3.0. Os managers e YamlDotNet estão incorporados; não devem ser instalados separadamente.
+Com o jogo fechado, desativar o pacote SeedBed original e instalar a **SeedBed.dll** da raiz em BepInEx/plugins/SeedBedRevamped. Manter apenas uma DLL ativa da família SeedBed; mover backups para fora de BepInEx/plugins. Servidor e clientes precisam da versão 1.3.1. Os managers e YamlDotNet estão incorporados; não devem ser instalados separadamente.
 
 O GUID interno blacks7ar.SeedBed, os nomes de configuração blacks7ar.SeedBed.cfg/.yml, o assembly SeedBed e o componente SeedBed.Functions.Germination são preservados para compatibilidade com instalações e canteiros existentes. Revamped substitui o original; não deve ser instalado junto dele.
 
@@ -20,7 +22,7 @@ Backups ficam em artifacts/backups, fora da pasta de plugins. A build não insta
 
 ## Pacote para publicação
 
-O build.ps1 gera artifacts/releases/SeedBed_Revamped-1.3.0.zip após os checks. Inclui manifest, ícone 256×256, [README de publicação](docs/README_THUNDERSTORE.md), changelog, créditos/licenças e uma única DLL em BepInEx/plugins/SeedBedRevamped. O pacote 1.3.0 publicado mantém website_url vazio. A página do mod está no [Hexium](https://valheim.hexium.gg/mods/Tetus/SeedBed_Revamped) e o código no [GitHub](https://github.com/MPSCardoso/SeedBed-Revamped); a autoria da versão é Tetus.
+O build.ps1 gera artifacts/releases/SeedBed_Revamped-1.3.1.zip após os checks. Inclui manifest, ícone 256×256, [README de publicação](docs/README_THUNDERSTORE.md), changelog, créditos/licenças e uma única DLL em BepInEx/plugins/SeedBedRevamped. O pacote 1.3.1 é preparado localmente; a publicação é uma etapa separada. O pacote 1.3.0 publicado mantém website_url vazio. A página do mod está no [Hexium](https://valheim.hexium.gg/mods/Tetus/SeedBed_Revamped) e o código no [GitHub](https://github.com/MPSCardoso/SeedBed-Revamped); a autoria da versão é Tetus.
 
 O empacotamento também pode ser repetido sobre a DLL já validada:
 
@@ -69,6 +71,6 @@ ILRepack.Lib.MSBuild.Task 2.0.46 incorpora as dependências em uma DLL; BepInEx.
 
 [Créditos e licenças](docs/THIRD_PARTY_NOTICES.md) · [APIs vanilla verificadas](docs/VALHEIM_API.md) · [Status e roteiro de teste no jogo](STATUS_E_PROXIMOS_PASSOS.md)
 
-A versão 1.3.0 foi testada pelo mantenedor em servidor multiplayer, com todas as funcionalidades validadas.
+A versão 1.3.0 foi testada pelo mantenedor em servidor multiplayer, com todas as funcionalidades validadas. O mantenedor confirmou a validação de Poteitr na 1.3.1 em seu mundo de testes. Consultar o [registro e roteiro](STATUS_E_PROXIMOS_PASSOS.md); não foi relatado um teste separado de Poteitr em multiplayer.
 
 [Demonstração do mod original](https://www.youtube.com/watch?v=C85sJ1sT49w).

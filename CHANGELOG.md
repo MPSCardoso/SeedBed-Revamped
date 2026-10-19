@@ -1,26 +1,36 @@
+# v1.3.1 — Poteitr support
+
+- Added the full Poteitr cycle: PoteitrSeeds → Poteitr and Poteitr → PoteitrSeeds. Default batches consume 5 items and produce 15.
+- Added localization-key fallback and resource diagnostics for Poteitr, using the existing seed/crop mapping and visuals.
+- Upgrades existing 1.3.0 YAML configurations with only missing Poteitr conversions. Older installations also receive the Deep North defaults. Custom destinations, quantities and previously removed older crops are preserved.
+- Creates a .pre-poteitr.bak backup before migrating, preserves earlier backups and retries failed migrations. Completed migrations respect later user removals.
+- Requires version 1.3.1 on the server and every client. Poteitr was validated by the maintainer in a test world; the multiplayer validation below applies to 1.3.0.
+
 # v1.3.0 — SeedBed Revamped
 
-- Renomeia o mod para SeedBed Revamped, mantido por Tetus, com créditos a blacks7ar pelo SeedBed original.
-- Inclui suporte aos vegetais do Deep North (Kale/KaleSeeds e Oat/OatSeeds), além de Lingonberries.
-- Concede XP de Farming nativa ao plantar e colher na seed bed.
-- Registra colheitas pelas APIs nativas para progresso de conquistas elegíveis; o desbloqueio global em partidas com mods requer uma ferramenta como Unshamed.
-- Preserva GUID, nomes de configuração, assembly, prefab e componente Germination para compatibilidade com os canteiros existentes. Substitui o SeedBed original; não instalar os dois pacotes juntos.
-- Prepara pacote Thunderstore com README, créditos, licenças e uma única DLL.
-- Plantio, XP e avanço de Fazendeiro validados pelo usuário em solo na base 1.2.10; multiplayer permanece pendente.
+- Renamed to SeedBed Revamped, maintained by Tetus, with full credit to blacks7ar for the original SeedBed.
+- Added Deep North crops (Kale/KaleSeeds and Oat/OatSeeds) and Lingonberries.
+- Grants native Farming XP when planting and harvesting in the seed bed.
+- Records harvests through native Valheim APIs for eligible achievement progress. Earning achievements in modded sessions requires an achievement-enabling mod such as Unshamed.
+- Preserves the plugin ID, configuration names, assembly, prefab and Germination component for compatibility with existing beds. Replaces the original SeedBed; do not install both packages together.
+- Includes a refreshed icon, English documentation, credits, license notices and a single merged DLL.
+- Tested on a multiplayer server with all mod features validated by the maintainer. Planting, XP and The Farmer progress had also been validated in solo play with Unshamed enabled.
 
-# Limpeza de desenvolvimento — 1.2.10
-- Remove fontes decompiladas de terceiros; compila managers oficiais fixados e usa YamlDotNet 16.0.0 do NuGet.
-- Gera referências publicizadas na build e distribui uma DLL com ILRepack.
-- Refatora casts, nomes e loops de visuais sem alterar os contratos do mod.
-- Amplia regressões para localização e empacotamento; guarda backups fora da árvore versionada.
-- PieceManager oficial 1.4.0: validação dentro do jogo ainda pendente.
+# Development cleanup — 1.2.10
 
-# v1.2.10 — correção local
-- Adiciona Kale/KaleSeeds, Oat/OatSeeds e Lingonberries com migração única do YAML e backup.
-- Detecta pares semente/vegetal de forma genérica e resolve nomes novos por chaves de localização quando necessário.
-- Concede Farming nativa ao plantar/colher e registra contadores/conquistas pelas APIs do Valheim.
-- Confirma plantio/colheita no dono da SeedBed antes do crédito; devolve sementes em pedidos recusados.
-- Exige versão 1.2.10 em clientes e servidor. Aparência e integração final ainda precisam de validação no jogo.
+- Replaced decompiled third-party sources with pinned official managers and YamlDotNet 16.0.0 from NuGet.
+- Generates publicized game references during the build and distributes a single merged DLL using ILRepack.
+- Refactored casts, names and visual loops while preserving mod contracts.
+- Expanded localization and packaging regressions; backups are stored outside the versioned source tree.
+- In-game validation completed by the maintainer, including multiplayer and all mod features in the 1.3.0 release.
+
+# v1.2.10 — local fixes
+
+- Added Kale/KaleSeeds, Oat/OatSeeds and Lingonberries with one-time YAML migration and backup.
+- Detects seed/vegetable pairs generically and resolves new item names through localization keys when needed.
+- Grants native Farming XP when planting and harvesting and records native harvest statistics.
+- Confirms planting and harvesting with the seed bed owner before granting credit; rejected planting requests return seeds.
+- Requires matching 1.2.10 versions on clients and server. Visuals and final integration still require in-game validation.
 
 #
 # v1.2.9

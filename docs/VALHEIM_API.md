@@ -1,5 +1,7 @@
 # APIs vanilla verificadas em 18/10/2026
 
+Atualização de dados em 19/10/2026: busca textual somente de leitura no resources.assets da instalação local confirmou item_poteitr (Poteitr) e item_poteitrseeds (Seed Poteitr). Essas chaves são usadas pelo fallback de resolução da 1.3.1; o par segue a regra genérica de sufixo seeds. A presença das strings não comprova o funcionamento em partida, os visuais nem as estatísticas específicas de Poteitr. Esta constatação veio da inspeção local por rg, não de nova evidência REA.
+
 Inspeção estática da DLL instalada, sem executar o jogo.
 
 - Caminho: C:/Program Files (x86)/Steam/steamapps/common/Valheim/valheim_Data/Managed/assembly_valheim.dll

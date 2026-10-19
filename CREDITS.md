@@ -1,9 +1,9 @@
-# SeedBed Revamped — créditos
+# SeedBed Revamped — Credits
 
-- **blacks7ar** — criador do [SeedBed original](https://thunderstore.io/c/valheim/p/blacks7ar/SeedBed/), código base, canteiro, bundle, ícone e conceito original.
-- **Tetus** — manutenção da versão Revamped: suporte aos vegetais do Deep North e arando, XP de Farming nativa ao plantar, integração da colheita com estatísticas/conquistas e reorganização da build/distribuição.
-- **Azumatt** — PieceManager e Unshamed, usado na validação de conquistas em partida com mods. Unshamed não está incorporado à DLL.
-- **Tykea / blaxxun** — ServerSync e LocalizationManager.
-- **Antoine Aubry e colaboradores** — YamlDotNet.
+- **blacks7ar** — creator of the [original SeedBed](https://thunderstore.io/c/valheim/p/blacks7ar/SeedBed/), base code, seed bed, asset bundle, original icon and concept.
+- **Tetus** — Revamped maintenance: Deep North crops and lingonberries, native Farming XP when planting, native harvest statistics and achievement integration, and build/distribution cleanup. The refreshed package icon is based on the original icon.
+- **Azumatt** — PieceManager and Unshamed, used for achievement validation in a modded session. Unshamed is installed separately and is not included in this DLL.
+- **Tykea / blaxxun** — ServerSync and LocalizationManager.
+- **Antoine Aubry and contributors** — YamlDotNet.
 
-As licenças das dependências incorporadas estão em docs/THIRD_PARTY_NOTICES.md no repositório e THIRD_PARTY_NOTICES.md na raiz do ZIP. Os créditos ao original são preservados; os avisos das dependências não atribuem uma nova licença ao código ou aos assets do SeedBed original.
+License notices for bundled dependencies are in docs/THIRD_PARTY_NOTICES.md in the repository and THIRD_PARTY_NOTICES.md at the ZIP root. Original credits are preserved; dependency notices do not assign a new license to the original SeedBed code or assets.

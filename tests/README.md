@@ -2,6 +2,12 @@
 
 O executável testa a DLL Release empacotada, sem iniciar Unity/Valheim e sem framework de testes externo. Os 24 checks originais de defaults, migração e mapeamento permanecem; novos checks verificam traduções, bytes do bundle, identidade de Germination e incorporação dos managers/YamlDotNet.
 
+Na 1.3.1, a suíte também verifica as 27 conversões, o ciclo completo de Poteitr, migração por Defaults Version (0/1/2 e versão futura), overrides de ambos os itens, remoções anteriores, backup .pre-poteitr.bak, preservação do backup antigo, YAML inválido e nova tentativa. O mapeamento de Poteitr é coberto com Pickable só do vegetal, só das sementes e dos dois lados. Testes em jogo de Poteitr, incluindo fallback de resolução, visuais, XP, estatísticas e multiplayer, permanecem pendentes no roteiro de STATUS_E_PROXIMOS_PASSOS.md.
+
+Validação da 1.3.1 em 19/10/2026: **56 checks C# aprovados**, teste de integridade das dependências aprovado e ZIP 1.3.1 validado pelo pipeline completo. Build Release sem erros, com os 8 avisos MSB3277 já documentados na base anterior. Log local: build_poteitr.log.
+
+Validação funcional posterior: o mantenedor confirmou Poteitr no mundo de testes em 19/10/2026 e autorizou a publicação. Esse relato encerra a pendência do teste funcional local; não inclui confirmação separada de multiplayer ou conquistas nesta rodada.
+
 ```powershell
 dotnet build src/SeedBed.csproj -c Release
 dotnet run --project tests/SeedBed.RegressionChecks.csproj -c Release

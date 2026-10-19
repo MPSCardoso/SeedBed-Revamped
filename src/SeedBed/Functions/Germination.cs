@@ -157,7 +157,7 @@ public class Germination : MonoBehaviour, Hoverable, Interactable
         ItemDrop item = ObjectDB.instance.GetItemPrefab(prefabName)?.GetComponent<ItemDrop>();
         if (item != null) return item;
         // New prefab names are not confirmed; localization keys were verified in the game assets.
-        if (prefabName != "Kale" && prefabName != "KaleSeeds" && prefabName != "Oat" && prefabName != "OatSeeds" && prefabName != "Lingonberries") return null;
+        if (prefabName != "Kale" && prefabName != "KaleSeeds" && prefabName != "Oat" && prefabName != "OatSeeds" && prefabName != "Lingonberries" && prefabName != "Poteitr" && prefabName != "PoteitrSeeds") return null;
         string itemKey = "$item_" + prefabName.ToLowerInvariant();
         return ObjectDB.instance.m_items.Select(prefab => prefab.GetComponent<ItemDrop>())
             .FirstOrDefault(candidate => candidate != null && candidate.m_itemData.m_shared.m_name == itemKey);

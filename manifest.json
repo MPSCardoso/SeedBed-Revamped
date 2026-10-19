@@ -1,7 +1,7 @@
 {
   "name": "SeedBed_Revamped",
-  "description": "SeedBed Revamped by Tetus, based on SeedBed by blacks7ar. Adds Deep North crops, native Farming XP when planting and harvesting, and harvest statistics for eligible achievements.",
-  "version_number": "1.3.0",
+  "description": "SeedBed Revamped by Tetus, based on SeedBed by blacks7ar. Grow Deep North crops, including Poteitr and its seeds, with native Farming XP and harvest statistics for eligible achievements.",
+  "version_number": "1.3.1",
   "website_url": "",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.2350"

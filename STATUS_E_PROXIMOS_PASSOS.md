@@ -1,5 +1,34 @@
 # Status e próximos passos — SeedBed Revamped / Valheim 1.0
 
+## Correção 1.3.1 — Poteitr — 19/10/2026
+
+- Adicionado o ciclo PoteitrSeeds → Poteitr e Poteitr → PoteitrSeeds, com consumo 5 e produção 15; total de 27 padrões. Resolução por prefab com fallback para $item_poteitr/$item_poteitrseeds, mapeamento e visuais genéricos existentes e logs Resource de Poteitr.
+- Defaults Version = 2, local: versão 0 recebe os padrões do Deep North e Poteitr; versão 1 recebe somente Poteitr. Apenas From ausentes são acrescentados; destinos/quantidades personalizados e remoções anteriores de outras culturas são preservados.
+- Backup .pre-poteitr.bak antes da escrita atômica, sem sobrescrever backups existentes nem .pre-valheim1.bak. YAML inválido permanece intacto; falhas permitem nova tentativa. A versão avança após sucesso, respeitando remoções posteriores.
+- Versão 1.3.1 no plugin, assembly e manifest. Entrega local: SeedBed.dll e artifacts/releases/SeedBed_Revamped-1.3.1.zip. Publicação e instalação não fazem parte deste ajuste.
+- Pipeline completo aprovado: build Release sem erros, com os 8 avisos MSB3277 já documentados; **56 verificações de regressão aprovadas** contra a DLL mesclada; cache válido aceito e cache adulterado rejeitado; ZIP validado por lista de arquivos e SHA-256. A DLL da raiz foi atualizada após todas as verificações, com backup da distribuição anterior.
+- SHA-256 da DLL: **f9ddd661d77a165c47aa98dbe3b6afed835318085874b27191920c477073fb82**. SHA-256 do ZIP: **4b1d05a67e6ae4370e5b0b86b5b8f8061d43b191bffdf4fb81d44a2b11e33258**. Log local: build_poteitr.log.
+- **Validação de Poteitr no jogo pendente**, separada da confirmação histórica da 1.3.0. Não houve instalação nem publicação da 1.3.1 nesta tarefa.
+
+### Instalação para teste no Gale — 19/10/2026
+
+A pedido do usuário, a DLL 1.3.1 foi posteriormente instalada no perfil ValheimNerdola, em BepInEx/plugins/Tetus-SeedBed_Revamped/SeedBedRevamped/SeedBed.dll. Versão e SHA-256 conferidos contra a distribuição validada. DLL anterior preservada em artifacts/backups/Gale-ValheimNerdola-SeedBed-before-1.3.1-20261019-133042-065.dll. O jogo estava fechado; nenhuma configuração foi alterada. O perfil já usa Germination Duration = 60 e Defaults Version = 1, permitindo verificar a migração automática para 2 na próxima inicialização. Publicação e validação em jogo continuam pendentes.
+
+Teste rápido: iniciar o mundo de testes pelo perfil ValheimNerdola; no console F5, ativar devcommands e executar spawn PoteitrSeeds 10 e spawn Poteitr 10. Usar o item desejado pela barra rápida no canteiro vazio para escolher explicitamente o sentido da conversão. Cada lote deve consumir 5 itens e, após pouco mais de 60 segundos, produzir 15 do outro item; conferir visuais e Farming. Sair e reentrar para verificar persistência dos canteiros e ausência de duplicatas no YAML. Conferir também uma cultura anterior, como cenoura. Este roteiro não registra aprovação de conquistas com devcommands.
+
+### Validação de Poteitr confirmada — 19/10/2026
+
+Após instalar a 1.3.1 no perfil ValheimNerdola e receber o roteiro rápido, o mantenedor confirmou: "Perfeito, validado". Validação funcional de Poteitr no mundo de testes concluída por relato do usuário, autorizando a publicação. Não foram fornecidos novos logs, medições individuais nem confirmação separada de multiplayer ou conquistas nesta rodada. Os registros anteriores de pendência descrevem o estado antes dessa confirmação.
+
+### Roteiro específico de Poteitr — referência para regressões
+
+1. Com servidor e clientes na 1.3.1, iniciar usando a configuração 1.3.0. Conferir as entradas ausentes de Poteitr, o backup e Defaults Version = 2; reiniciar e verificar ausência de duplicatas. Repetir com overrides e culturas antigas removidas.
+2. Plantar 5 PoteitrSeeds, conferir visual e tempo de germinação e colher 15 Poteitr. Plantar 5 Poteitr e colher 15 PoteitrSeeds. Conferir XP de Farming e estatísticas nas duas operações, conforme as regras nativas existentes.
+3. Repetir em solo e multiplayer, usando canteiros existentes e de outro cliente. Disputar interações; conferir crédito apenas à ação aceita e devolução de itens recusados. Recarregar o mundo durante a germinação para conferir conteúdo e visuais.
+4. Se houver falha, registrar BepInEx/LogOutput.log, especialmente Conversion PoteitrSeeds/Poteitr e Resource $item_poteitr/$item_poteitrseeds. Conferir também uma cultura anterior, como cenoura.
+
+## Histórico da versão 1.3.0
+
 Atualizado em 18/10/2026. **SeedBed Revamped 1.3.0**, mantido por **Tetus**, baseado no SeedBed 1.2.9 de **blacks7ar** e nas correções locais 1.2.10.
 
 ## Identidade e publicação
@@ -7,8 +36,10 @@ Atualizado em 18/10/2026. **SeedBed Revamped 1.3.0**, mantido por **Tetus**, bas
 - Nome visível: **SeedBed Revamped**; pacote Thunderstore: **SeedBed_Revamped**; versão **1.3.0**. Créditos ao criador blacks7ar preservados no README, changelog, CREDITS.md, avisos de terceiros, metadados e log de inicialização.
 - GUID blacks7ar.SeedBed, assembly/DLL SeedBed, componente SeedBed.Functions.Germination, prefab BSB_SeedBed e arquivos blacks7ar.SeedBed.cfg/.yml preservados para compatibilidade. Revamped substitui o original; manter apenas uma DLL ativa.
 - Funcionalidades divulgadas: vegetais do Deep North e arando; Farming nativa ao plantar e colher; registro nativo da colheita para conquistas elegíveis. O bloqueio global do Valheim em sessões com mods exige uma ferramenta como Unshamed, não é removido por esta DLL.
-- ZIP preparado em artifacts/releases/SeedBed_Revamped-1.3.0.zip, com uma única DLL, manifest, ícone 256×256, README de publicação, changelog, créditos e licenças. SHA-256 do ZIP: **c34240a73663289fa29f0fc03606f5b4d97009c29776eaebae63530685cb8a57**.
-- website_url permanece vazio até haver uma página própria. A publicação externa e a instalação da 1.3.0 no Gale não foram realizadas pela automação.
+- ZIP preparado em artifacts/releases/SeedBed_Revamped-1.3.0.zip, com uma única DLL, manifest, ícone 256×256, README de publicação, changelog, créditos e licenças. SHA-256 do ZIP: **02cf2a049368f0c2ada06f897ae584145aa8f10ecfb6905d4ae51154399b0ec4**.
+- Ícone atualizado com image_gen, mantendo os canteiros originais e adicionando SeedBed Revamped. Descrição, README de publicação, changelog e créditos em inglês.
+- **Publicado no Hexium em 18/10/2026:** https://valheim.hexium.gg/mods/Tetus/SeedBed_Revamped, equipe Tetus, versão 1.3.0, instalação Client & Server, visibilidade pública. Tags Farming, Pieces, Quality of Life e Valheim 1.0. Ícone e descrição em inglês confirmados na página; download disponível.
+- O pacote publicado mantém website_url vazio; a página própria está registrada acima para uso em versões futuras. A instalação da 1.3.0 no Gale não foi realizada pela automação.
 
 ## Funcionalidades preservadas
 
@@ -37,7 +68,7 @@ Atualizado em 18/10/2026. **SeedBed Revamped 1.3.0**, mantido por **Tetus**, bas
 - **33 verificações de regressão aprovadas**, incluindo as 24 originais, traduções, bytes do bundle, identidade de Germination e dependências incorporadas.
 - Teste de integridade aprovado: cache válido aceito e arquivo adulterado rejeitado, usando fixture isolada.
 - Empacotamento aprovado: DLL intermediária rejeitada; artefato mesclado aceito; os sete arquivos do ZIP foram conferidos por SHA-256, incluindo a DLL idêntica à distribuição da raiz.
-- Comparação estática com o snapshot confirmou os corpos dos oito fluxos de RPC, XP/estatísticas e inserção/uso de itens, descontando casts e formatação. A refatoração visual continua pendente de inspeção no jogo.
+- Comparação estática com o snapshot confirmou os corpos dos oito fluxos de RPC, XP/estatísticas e inserção/uso de itens, descontando casts e formatação. Posteriormente, o usuário confirmou todas as funcionalidades no jogo em servidor multiplayer.
 - Árvore src reduzida de **549 para 11 arquivos C#**; fontes de terceiros e atributos gerados não estão mais na árvore versionável.
 - DLL da raiz idêntica ao pacote testado: **1358848 bytes**. SHA-256: **87b60f7bde1fee69e7bc7c0617b58a9a2f3009a622852bd603f5a23edefb39fe**.
 - Snapshot e DLLs anteriores preservados em artifacts/backups; cache, backups, caminhos locais e referências geradas foram confirmados como ignorados pelo Git.
@@ -70,11 +101,17 @@ Os testes no jogo foram feitos na base 1.2.10. A versão 1.3.0 altera nome/metad
 - Log da sessão: Unshamed 1.0.8 carregado e Eligible for achievements: True. Isso confirma a elegibilidade reportada naquela sessão, mas não o avanço do contador.
 - Inspeção estática: IncrementStatPickable atualiza m_pickableStats e, quando elegível, chama CheckAchievementProgressUnlockPickable; IncrementStat dispara a verificação por PlayerStatType. SeedBed chama ambas conforme m_harvestStat, com crédito de SeedAmount.
 - Validação de Fazendeiro concluída por relato do usuário após a orientação de repetir o teste com uma cultura agrícola. O teste inicial havia sido feito com framboesas. Não foram informados valores do contador nem o desbloqueio final das 500 colheitas; a confirmação registrada é do funcionamento do avanço.
-- Os demais itens do roteiro abaixo permanecem pendentes, salvo confirmação específica do usuário.
+- Posteriormente, o usuário confirmou o funcionamento em servidor multiplayer e a validação de todas as funcionalidades do mod.
 
-## Próximo passo: concluir a validação no jogo
+## Validação multiplayer concluída — retorno do usuário em 18/10/2026
 
-Antes de publicar, fazer uma abertura de conferência da 1.3.0: nome SeedBed Revamped no log, configuração anterior carregada e canteiros existentes preservados.
+O usuário testou a versão publicada em um servidor multiplayer e confirmou que todas as funcionalidades do mod foram validadas. A validação funcional no jogo está concluída conforme esse relato; não foram fornecidos novos logs ou medições individuais para cada cenário de teste.
+
+README principal em inglês, com português preservado em README.pt-BR.md. Projeto: https://github.com/MPSCardoso/SeedBed-Revamped. Descrição de publicação atualizada com a confirmação multiplayer e o link do código.
+
+## Roteiro de referência para futuras regressões
+
+Em futuras versões, conferir nome SeedBed Revamped no log, configuração anterior carregada e canteiros existentes preservados.
 
 1. Validar construção: bancada, categoria CollectorSeries, receita YmirRemains ×5 / BronzeNails ×8 / Wood ×18, configurações geradas, efeitos e shaders. O PieceManager foi substituído de 1.3.0 embutido para oficial 1.4.0.
 2. Validar tradução inglesa e troca de idioma, incluindo arquivos externos de tradução compatíveis.
@@ -86,4 +123,4 @@ Antes de publicar, fazer uma abertura de conferência da 1.3.0: nome SeedBed Rev
 
 [APIs vanilla verificadas](docs/VALHEIM_API.md) · [Créditos e licenças](docs/THIRD_PARTY_NOTICES.md) · [Regressões](tests/README.md)
 
-O teste solo confirmou plantio, recebimento de experiência e avanço da conquista Fazendeiro, conforme relato do usuário. Os demais itens do roteiro, incluindo multiplayer, continuam pendentes de confirmação específica.
+O teste solo confirmou plantio, recebimento de experiência e avanço da conquista Fazendeiro. O teste posterior em servidor multiplayer confirmou todas as funcionalidades, conforme relato do usuário.

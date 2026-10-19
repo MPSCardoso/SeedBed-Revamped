@@ -59,7 +59,7 @@ public class Plugin : BaseUnityPlugin
 
     public const string originalAuthor = "blacks7ar";
 
-    public const string modVersion = "1.3.0";
+    public const string modVersion = "1.3.1";
 
     public static string ymlFileName = "blacks7ar.SeedBed.yml";
 
@@ -82,7 +82,7 @@ public class Plugin : BaseUnityPlugin
 
     public static ConfigEntry<float> _expAmountFarming;
 
-    private const int CurrentDefaultsVersion = 1;
+    private const int CurrentDefaultsVersion = ConversionDefaults.CurrentVersion;
 
     private ConfigEntry<int> _defaultsVersion;
 
@@ -246,7 +246,7 @@ public class Plugin : BaseUnityPlugin
                 if (!_PlantDB.ContainsKey(resource.Key) && plant.m_grownPrefabs.Contains(resource.Value)) _PlantDB[resource.Key] = piece;
             }
         }
-        foreach (var resource in _ResourceDB.Where(entry => entry.Key.Contains("kale") || entry.Key.Contains("oat") || entry.Key.Contains("lingon")))
+        foreach (var resource in _ResourceDB.Where(entry => entry.Key.Contains("kale") || entry.Key.Contains("oat") || entry.Key.Contains("lingon") || entry.Key.Contains("poteitr")))
         {
             Logging.LogInfo($"Resource {resource.Key} -> {resource.Value.name} (item: {resource.Value.GetComponent<Pickable>().m_itemPrefab.name})");
         }
@@ -262,10 +262,10 @@ public class Plugin : BaseUnityPlugin
         if (_defaultsVersion.Value >= CurrentDefaultsVersion) return;
         try
         {
-            int added = ConversionDefaults.MigrateFile(ymlFullPath);
+            int added = ConversionDefaults.MigrateFile(ymlFullPath, _defaultsVersion.Value);
             if (added > 0)
             {
-                Logging.LogInfo($"Added {added} new default conversions to {ymlFileName}. Backup: {ymlFullPath}.pre-valheim1.bak");
+                Logging.LogInfo($"Added {added} new default conversions to {ymlFileName}. Backup: {ymlFullPath}{ConversionDefaults.BackupSuffix}");
             }
             _defaultsVersion.Value = CurrentDefaultsVersion;
         }
