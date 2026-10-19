@@ -71,4 +71,4 @@ ILRepack.Lib.MSBuild.Task 2.0.46 incorpora as dependências em uma DLL; BepInEx.
 
 A versão 1.3.0 foi testada pelo mantenedor em servidor multiplayer, com todas as funcionalidades validadas.
 
-[Demonstração do mod original](https://www.youtube.com/watch?v=g-Okgy7TPwo).
+[Demonstração do mod original](https://www.youtube.com/watch?v=C85sJ1sT49w).

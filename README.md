@@ -75,4 +75,4 @@ YamlDotNet 16.0.0 comes from NuGet. PieceManager, ServerSync and LocalizationMan
 
 ILRepack.Lib.MSBuild.Task 2.0.46 embeds the dependencies in one DLL; BepInEx.AssemblyPublicizer.MSBuild 0.4.3 prepares local references. Do not edit cached sources: deliberate dependency changes must update the manifest and pass validation again.
 
-[Credits and licenses](docs/THIRD_PARTY_NOTICES.md) · [Verified vanilla APIs (Portuguese)](docs/VALHEIM_API.md) · [Status and in-game test record (Portuguese)](STATUS_E_PROXIMOS_PASSOS.md) · [Original mod demonstration](https://www.youtube.com/watch?v=g-Okgy7TPwo)
+[Credits and licenses](docs/THIRD_PARTY_NOTICES.md) · [Verified vanilla APIs (Portuguese)](docs/VALHEIM_API.md) · [Status and in-game test record (Portuguese)](STATUS_E_PROXIMOS_PASSOS.md) · [Original mod demonstration](https://www.youtube.com/watch?v=C85sJ1sT49w)
